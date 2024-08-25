@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .calculator {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="calculator bg-white shadow-lg rounded-lg p-4">
+        <input id="display" type="text" class="w-full p-2 text-right text-lg border border-gray-300 rounded-lg mb-2" disabled>
+        <div class="grid grid-cols-4 gap-2">
+            <button class="btn">7</button>
+            <button class="btn">8</button>
+            <button class="btn">9</button>
+            <button class="btn bg-blue-500 text-white">/</button>
+            <button class="btn">4</button>
+            <button class="btn">5</button>
+            <button class="btn">6</button>
+            <button class="btn bg-blue-500 text-white">*</button>
+            <button class="btn">1</button>
+            <button class="btn">2</button>
+            <button class="btn">3</button>
+            <button class="btn bg-blue-500 text-white">-</button>
+            <button class="btn col-span-2">0</button>
+            <button class="btn">.</button>
+            <button class="btn bg-blue-500 text-white">+</button>
+            <button class="btn col-span-4 bg-blue-500 text-white">=</button>
+            <button class="btn col-span-4 bg-red-500 text-white">C</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
