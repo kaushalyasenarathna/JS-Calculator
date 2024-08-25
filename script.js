@@ -11,12 +11,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const value = e.target.innerText;
 
             if (value === '=') {
+                // Evaluate the expression
                 try {
+                    // Replace any `×` or `÷` with `*` or `/` for eval compatibility
+                    currentInput = currentInput.replace('×', '*').replace('÷', '/');
                     currentInput = eval(currentInput).toString();
                 } catch {
                     currentInput = 'Error';
                 }
-                operator = '';
+                display.value = currentInput; // Show result
+                operator = ''; // Clear operator
             } else if (value === 'C') {
                 // Clear the display and reset internal state
                 currentInput = '';
@@ -24,14 +28,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 previousInput = '';
                 display.value = '';
             } else {
+                // Handle operator and numbers
                 if (['/', '*', '-', '+'].includes(value)) {
-                    operator = value;
-                    previousInput = currentInput;
-                    currentInput += ` ${operator} `;
+                    // Avoid multiple operators
+                    if (['/', '*', '-', '+'].includes(currentInput.slice(-1))) {
+                        currentInput = currentInput.slice(0, -1);
+                    }
+                    currentInput += ` ${value} `;
                 } else {
                     currentInput += value;
                 }
-                display.value = currentInput;
+                display.value = currentInput; // Update display
             }
         });
     });
